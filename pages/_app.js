@@ -18,7 +18,7 @@ import {
   metaMaskWallet
 } from '@rainbow-me/rainbowkit/wallets';
 import { rainbowWeb3AuthConnector } from '../utils/rainbowWeb3authConnector';
-
+import Navbar from '../components/Navbar'
 
 const { chains, provider } = configureChains(
   [chain.polygon],
@@ -63,6 +63,7 @@ function MyApp({ Component, pageProps }) {
     <WagmiConfig client={wagmiClient}>
     <RainbowKitProvider chains={chains}>
       <ChakraProvider theme={theme}>
+      <Navbar />
         <Component {...pageProps} />
       </ChakraProvider>
       </RainbowKitProvider>
