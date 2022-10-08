@@ -124,6 +124,7 @@ export const recommendProfiles = `
     recommendedProfiles {
         id
         name
+        bio
         picture {
           ... on MediaSet {
             original {

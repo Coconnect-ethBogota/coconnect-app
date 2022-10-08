@@ -1,9 +1,10 @@
-import { Avatar, Box, Button, Center, Flex, Heading, HStack, Image, Link, Stack, Text } from '@chakra-ui/react'
+import { Avatar, Box, Button, Center, Flex, Heading, HStack, Image, Link, Stack, Tag, Text } from '@chakra-ui/react'
 import React from 'react'
 
 
-export const ProfileCard = ({profile}) => {
-    return (
+export const ProfileCardProfile = ({profile}) => {
+  console.log('profile', profile);  
+  return (
         <Center py={6}>
           <Box
             w={'352px'}
@@ -45,6 +46,29 @@ export const ProfileCard = ({profile}) => {
                  {profile.handle}
                 </Heading>
                 <Text fontSize={'16px'} fontWeight={400}>{profile.bio}</Text>
+             <HStack>
+             <Tag h={'26px'} w={'73px'}  bgGradient='linear(to-r, #FA5985, #FDC731)'>
+              <Text fontWeight={700} fontSize={'10px'} color={'white'} whiteSpace={'pre'}># Finances</Text>
+             </Tag>
+             <Tag h={'26px'} w={'73px'}  bgGradient='linear(to-r, #FA5985, #FDC731)'>
+              <Text fontWeight={700} fontSize={'10px'} color={'white'} whiteSpace={'pre'}># Finances</Text>
+             </Tag>
+             <Tag h={'26px'} w={'73px'}  bgGradient='linear(to-r, #FA5985, #FDC731)'>
+              <Text fontWeight={700} fontSize={'10px'} color={'white'} whiteSpace={'pre'}># Finances</Text>
+             </Tag>
+             </HStack>
+             <HStack>
+           
+               <Stack alignContent={'center'}>
+                <Text fontWeight={800} fontSize={'24px'}>68 %</Text>
+                <Text fontSize={'8px'}>Success Rate</Text>
+               </Stack>
+        
+        <Stack>
+          <Text fontWeight={400} fontSize={'12px'}>Reputacion</Text>
+          <Text>🥥 🥥 🥥 🥥 🥥</Text>
+        </Stack>
+             </HStack>
               </Stack>
               </Box>
           </Box>

@@ -19,6 +19,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import Link from 'next/link'
+import { ProfileCardProfile } from '../../components/ProfileCardProfile'
 
 
 const CONTRACT_ADDRESS = '0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d'
@@ -84,7 +85,7 @@ export default function Profile() {
   console.log('profile: ', profile)
   return (
     <Container maxW="sm">
-      <Card profile={profile} />
+      <ProfileCardProfile profile={profile} />
       {publications.map((pub, index) => (
         <Stack key={index} border={'1px'} borderRadius={10} borderColor={'whiteAlpha.600'} p={5} m={5}>
           <Text>{pub.metadata.content}</Text>
@@ -94,103 +95,3 @@ export default function Profile() {
   )
 }
 
-const Card = ({profile}) => {
-  console.log('perfil: ', profile);
-
-  return (
-    <Center py={6}>
-      <Box
-        maxW={'270px'}
-        w={'full'}
-        bg={useColorModeValue('white', 'gray.800')}
-        boxShadow={'2xl'}
-        rounded={'md'}
-        overflow={'hidden'}
-      >
-        <Image
-          h={'120px'}
-          w={'full'}
-          src={
-            profile.coverPicture == null ?
-            'https://images.unsplash.com/photo-1612865547334-09cb8cb455da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
-            : profile.coverPicture?.original?.url
-          }
-          objectFit={'cover'}
-          alt={profile.handle}
-        />
-        <Flex justify={'center'} mt={-12}>
-          <Avatar
-            size={'xl'}
-            src={profile.picture?.original?.url}
-            alt={profile.handle}
-            css={{
-              border: '2px solid white',
-            }}
-          />
-        </Flex>
-
-        <Box p={6}>
-          <Stack spacing={0} align={'center'} mb={5}>
-            <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-             {profile.handle}
-            </Heading>
-            <Text color={'gray.500'}>{profile.bio}</Text>
-          </Stack>
-
-          <Stack direction={'row'} justify={'center'} spacing={6}>
-            <Stack spacing={0} align={'center'}>
-              <Text fontWeight={600}>{profile.stats.totalFollowing}</Text>
-              <Text fontSize={'sm'} color={'gray.500'}>
-              Following
-              </Text>
-            </Stack>
-            <Stack spacing={0} align={'center'}>
-              <Text fontWeight={600}>{profile.stats.totalFollowers}</Text>
-              <Text fontSize={'sm'} color={'gray.500'}>
-                Followers
-              </Text>
-            </Stack>
-          </Stack>
-          <Link href={`/form`}>
-          <Button
-            w={'full'}
-            mt={8}
-            bg={useColorModeValue('#151f21', 'gray.900')}
-            color={'white'}
-            rounded={'md'}
-            _hover={{
-              transform: 'translateY(-2px)',
-              boxShadow: 'lg',
-            }}
-          >
-            Contact
-          </Button>
-          </Link>
-        </Box>
-      </Box>
-    </Center>
-  )
-}
-
-/**
-     <div>
-      <div style={profileContainerStyle}>
-        <button onClick={connectWallet}>Sign In</button>
-        <Image
-          width="200px"
-          height="200px"
-          src={profile.picture?.original?.url}
-          alt='algo'
-        />
-        <p>{profile.handle}</p>
-        {
-            publications.map((pub, index) => (
-              <div key={index}>
-                <p>{pub.metadata.content}</p>
-              </div>
-            ))
-        }
-        <button onClick={followUser}>Follow User</button>
-      </div>
-    </div>
- */

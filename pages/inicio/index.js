@@ -60,6 +60,7 @@ export default function Inicio() {
           h={'40px'}
           borderRadius={'12px'}
           placeholder="Search"
+          onChange={(e) => searchProfilesLens(e.target.value)}
         />
         <Button
           h={'40px'}
