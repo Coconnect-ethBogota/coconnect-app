@@ -1,18 +1,23 @@
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
-import { client, recommendProfiles, searchProfiles } from '../api'
 import {
   Avatar,
+  Button,
   Container,
+  Heading,
   HStack,
   Input,
   Stack,
+  Tab,
+  TabList,
+  Tabs,
   Text,
   WrapItem,
 } from '@chakra-ui/react'
-import { ConnectButton } from '@rainbow-me/rainbowkit'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { ProfileCard } from '../components/ProfileCard'
+import { client, recommendProfiles, searchProfiles } from '../api'
+export default function Inicio() {
 
-export default function Home() {
   const [profiles, setprofiles] = useState([])
   useEffect(() => {
     fetchProfiles()
@@ -23,6 +28,7 @@ export default function Home() {
       const response = await client.query(recommendProfiles).toPromise()
       console.log('original: ', response.data.recommendedProfiles)
       setprofiles(response.data.recommendedProfiles)
+      console.log('data: ', response.data.recommendedProfiles);
     } catch (error) {
       console.log(error)
     }
@@ -46,41 +52,42 @@ export default function Home() {
   }
 
 
-  
-
   return (
     <Container maxW="sm">
-      <HStack>
-        <Input w={'229px'} h={'40px'} border={'1px solid'} borderColor={'linear-gradient(45deg, blue, red)'} />
-        <ConnectButton />
+      <HStack mt={'39px'} p={'0px 15px'}>
+        <Input
+          w={'229px'}
+          h={'40px'}
+          borderRadius={'12px'}
+          placeholder="Search"
+          onChange={(e) => searchProfilesLens(e.target.value)}
+        />
+        <Button
+          h={'40px'}
+          borderRadius={'12px'}
+          bgGradient="linear(to-r, #FA5985, #FDC731)"
+          color={'#FFFFFF'}
+        >
+          Connect Wallet
+        </Button>
       </HStack>
-      <HStack alignContent="space-between" mt={'20px'}>
-        <Input placeholder="Search by profile..." size="lg"  onChange={(e) => searchProfilesLens(e.target.value)}/>
+      <HStack justify={'center'} mt={'20px'}>
+        <Tabs>
+          <TabList>
+            <Tab>🔥 Trend</Tab>
+            <Tab>👤 Followers</Tab>
+            <Tab>🔁 Mirrors</Tab>
+          </TabList>
+        </Tabs>
       </HStack>
-      <Stack spacing={3} alignItems='flex-start‰' mt={'20px'}>
       {profiles.map((profile, index) => (
         <Link href={`/profile/${profile.id}`} key={index}>
           <a>
-          <HStack spacing={3} p={1} w='100%'>
-                <Avatar name={profile.handle} src={profile.picture?.original?.url}/>
-              <Text>{profile.handle}</Text>
-              <Text>{profile.bio}</Text>
-            </HStack>
+          <ProfileCard profile={profile}/>
           </a>
         </Link>
       ))}
-      </Stack>
+ 
     </Container>
-  )
-}
-
-const PerfilItem = (name) => {
-  return (
-    <HStack spacing={3} p={1} w='100%'>
-      <WrapItem>
-        <Avatar name={name} src="https://bit.ly/sage-adebayo" />
-      </WrapItem>
-      <Text>{name}</Text>
-    </HStack>
   )
 }

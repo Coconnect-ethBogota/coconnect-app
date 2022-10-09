@@ -87,7 +87,7 @@ export default function Profile() {
     <Container maxW="sm">
       <ProfileCardProfile profile={profile} />
       {publications.map((pub, index) => (
-        <Stack key={index} border={'1px'} borderRadius={10} borderColor={'whiteAlpha.600'} p={5} m={5}>
+        <Stack key={index} border={'1px'} borderRadius={10} borderColor={'#FA5985'} p={5} m={5}>
           <Text>{pub.metadata.content}</Text>
         </Stack>
       ))}
