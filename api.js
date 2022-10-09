@@ -315,9 +315,10 @@ fragment ProfileFields on Profile {
   }
 }
 `
+
 export const getProfileByOwner = `
-query Profiles {
-  profiles(request: { ownedBy: ["0xD28E808647D596F33Dcc3436E193A9566fc7aC07"], limit: 10 }) {
+query Profiles($id: ProfileId!) {
+  profiles(request: { ownedBy: [$id]}) {
     items {
       id
       name

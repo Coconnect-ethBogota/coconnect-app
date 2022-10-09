@@ -15,13 +15,20 @@ import {
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { ProfileCard } from '../components/ProfileCard'
-import { client, recommendProfiles, searchProfiles } from '../api'
+import { client, recommendProfiles, searchProfiles, getProfileByOwner } from '../api'
+import { ConnectButton, useConnectModal } from '@rainbow-me/rainbowkit'
+import { useAccount } from 'wagmi'
+
+
 export default function Inicio() {
 
   const [profiles, setprofiles] = useState([])
+
   useEffect(() => {
     fetchProfiles()
   }, [])
+
+
 
   async function fetchProfiles() {
     try {
@@ -52,24 +59,18 @@ export default function Inicio() {
   }
 
 
+
   return (
     <Container maxW="sm">
-      <HStack mt={'39px'} p={'0px 15px'}>
+      <HStack mt={'39px'} p={'0px 15px'} justify={'space-between'}>
         <Input
-          w={'229px'}
+          w={'150px'}
           h={'40px'}
           borderRadius={'12px'}
           placeholder="Search"
           onChange={(e) => searchProfilesLens(e.target.value)}
         />
-        <Button
-          h={'40px'}
-          borderRadius={'12px'}
-          bgGradient="linear(to-r, #FA5985, #FDC731)"
-          color={'#FFFFFF'}
-        >
-          Connect Wallet
-        </Button>
+        <ConnectButton />
       </HStack>
       <HStack justify={'center'} mt={'20px'}>
         <Tabs>

@@ -13,6 +13,7 @@
     "@chakra-ui/react": "^2.3.5",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@pushprotocol/restapi": "^0.1.1",
     "@rainbow-me/rainbowkit": "^0.7.1",
     "@web3auth/web3auth-wagmi-connector": "^1.0.0",
     "ethers": "^5.7.1",

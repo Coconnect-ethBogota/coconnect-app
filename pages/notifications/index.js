@@ -2,8 +2,11 @@ import { CheckIcon, CloseIcon } from '@chakra-ui/icons'
 import {
   Avatar,
   Badge,
+  Box,
   Button,
+  Center,
   Container,
+  Flex,
   Heading,
   HStack,
   IconButton,
@@ -11,6 +14,8 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { useState } from 'react'
+import NotificationIcon from '../../components/icons/NotificationIcon'
+import ProposalsIcon from '../../components/icons/ProposalsIcon'
 
 const data = [
   {
@@ -36,41 +41,77 @@ const data = [
   },
 ]
 export default function Notifications () {
+  const [status, setstatus] = useState('pending')
   return (
-    <Container p={10}>
-      <Heading p={10}>🚧 Under construction, coming soon... 🏗</Heading>
+    <Container maxW="sm">
+      <HStack justify={'space-between'} pt={'25px'}>
+       <Box w={'48px'} h={'48px'} /> 
+       <HStack >
+        <NotificationIcon />
+       <ProposalsIcon  />
+       </HStack>
+       <Avatar size={'md'}/>
+      </HStack>
+      <Stack alignItems={'center'} w={'100%'} mt={'20px'}>
+      <SwipeUp status={status} onClick={setstatus}/>
+      <ProposalCard />
       {data.map((person) => {
         return <Card props={person} key={person.key} />
       })}
+      </Stack>
     </Container>
   )
 }
 
+const SwipeUp = ({status, onClick}) => {
+  return (
+    <HStack mb={'16px'} w={'339px'} h={'52px'} borderRadius={'50px'} bgColor={'#F0F0F0'} justify={'space-between'} spacing={1} p={'0px 11px'}>
+      <Stack onClick={() => onClick('pending')} display={'flex'} justifyContent={'center'} alignItems={'center'} p={'9px 50px'}   bgGradient={status !== 'pending' ? '' : "linear(to-r, #FA5985, #FDC731)" } borderRadius={'40px'} w={'146px'} h={'38px'}>
+      <Text color={status !== 'pending' ?  '#000000': 'white' } fontSize={'14px'} fontWeight={700}>Pending</Text>
+      </Stack>
+      <Stack onClick={() => onClick('aceptada')} display={'flex'} justifyContent={'center'} alignItems={'center'} p={'9px 50px'}   bgGradient={status === 'pending' ? '' : "linear(to-r, #FA5985, #FDC731)" } borderRadius={'40px'} w={'146px'} h={'38px'}>
+      <Text color={status === 'pending' ?  '#000000': 'white' } fontSize={'14px'} fontWeight={700}>Reject</Text>
+      </Stack>
+    </HStack>
+  )
+}
+
+const ProposalCard = () => {
+  return (
+    <HStack>
+
+    </HStack>
+  )
+}
 const Card = ({ props }) => {
   const [open, setopen] = useState(false)
   return (
-    <Stack border={'1px'} borderColor={'white'} borderRadius={10} p={5} m={5} w={'100%'}>
+    <Stack border={'3px solid'} borderColor={'#FA5985'} borderRadius={10} p={5} m={5} w={'364px'} minHeight={'107px'}>
       <HStack justifyContent={'space-between'}>
         <HStack>
           <Avatar name={props.name} src={props.image} />
           <Stack justifyContent={'flex-start'}>
-            <Heading size={'sm'}>{props.name}</Heading>
+            <Heading fontSize={'16px'} fontWeight={'700'}>{props.name}</Heading>
             <Button
-              colorScheme="teal"
+             color={'#FA5985'}
               variant="link"
               size={'xs'}
               onClick={() => setopen(!open)}
+              fontSize={'12px'}
+              fontWeight={'600'}
             >
-              {open ? '-' : '+'} Info
+              {open ? '-' : '+'} Show message
             </Button>
           </Stack>
         </HStack>
+        {props.status !== 'pending' && (
         <Badge colorScheme={props.variant}>{props.status}</Badge>
+        )}
         <Stack>
           {props.status == 'pending' && (
             <HStack>
-              <IconButton aria-label="Search database" icon={<CheckIcon />} />
-              <IconButton aria-label="Search database" icon={<CloseIcon />} />
+              <IconButton w={'40px'} variant='ghost' isRound aria-label="Search database" icon={<CheckIcon color={'#FF5E51'}/>} border={'2px solid #FF5E51'} />
+              <IconButton w={'40px'} variant='ghost'  isRound aria-label="Search database" icon={<CloseIcon color={'#00D387'}  />} border={'2px solid #00D387'}/>
             </HStack>
           )}
         </Stack>
