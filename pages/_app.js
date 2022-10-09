@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import { ChakraProvider } from '@chakra-ui/react'
+import { Box, ChakraProvider, Container } from '@chakra-ui/react'
 import { extendTheme } from '@chakra-ui/react'
 import '@rainbow-me/rainbowkit/styles.css';
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
@@ -19,6 +19,7 @@ import {
 } from '@rainbow-me/rainbowkit/wallets';
 import { rainbowWeb3AuthConnector } from '../utils/rainbowWeb3authConnector';
 import Navbar from '../components/Navbar'
+import { BottomNavbar } from '../components/BottomNavbar';
 
 const { chains, provider } = configureChains(
   [chain.polygon],
@@ -63,7 +64,10 @@ function MyApp({ Component, pageProps }) {
     <WagmiConfig client={wagmiClient}>
     <RainbowKitProvider chains={chains}>
       <ChakraProvider theme={theme}>
+        <Container maxW="sm">  
         <Component {...pageProps} />
+        <BottomNavbar />
+          </Container>
       </ChakraProvider>
       </RainbowKitProvider>
     </WagmiConfig>

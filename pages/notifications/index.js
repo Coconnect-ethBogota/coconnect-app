@@ -21,21 +21,21 @@ const data = [
   {
     status: 'pending',
     variant: 'gray',
-    name: 'Ken Dodds',
-    image: 'https://bit.ly/kent-c-dodds',
+    name: 'Hollyherdon.lens',
+    image: 'https://img.seadn.io/files/7a52159b156c616c0d632dc05c25dc1a.png?fit=max&w=1000',
     id: 2,
   },
   {
     status: 'denegada',
     variant: 'red',
-    name: 'Dan Abrahmov',
-    image: 'https://bit.ly/dan-abramov',
+    name: 'Juanma.lens',
+    image: 'https://img.seadn.io/files/b0a2331a53def406ee438364ed530b4f.png?fit=max&w=1000',
     id: 1,
   },
   {
     status: 'aceptada',
     variant: 'green',
-    name: 'Ryan Florence',
+    name: 'Mati.lens',
     image: 'https://bit.ly/ryan-florence',
     id: 3,
   },
@@ -43,7 +43,7 @@ const data = [
 export default function Notifications () {
   const [status, setstatus] = useState('pending')
   return (
-    <Container maxW="sm">
+    <>
       <HStack justify={'space-between'} pt={'25px'}>
        <Box w={'48px'} h={'48px'} /> 
        <HStack >
@@ -59,7 +59,7 @@ export default function Notifications () {
         return <Card props={person} key={person.key} />
       })}
       </Stack>
-    </Container>
+    </>
   )
 }
 
@@ -105,7 +105,7 @@ const Card = ({ props }) => {
           </Stack>
         </HStack>
         {props.status !== 'pending' && (
-        <Badge colorScheme={props.variant}>{props.status}</Badge>
+        <Badge colorScheme={props.variant} borderRadius={'10px'} fontSize={'12px'} fontWeight={600}>{props.status}</Badge>
         )}
         <Stack>
           {props.status == 'pending' && (
