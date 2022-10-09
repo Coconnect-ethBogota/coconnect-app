@@ -62,26 +62,26 @@ const signer = new ethers.Wallet(Pkey);
     }
     return (
       <>
-        <Stack ml="24px" mr="24px">
+        <Stack ml="24px" mr="24px" pt="15px">
           <SwipeUp status={status} onClick={setstatus}/>
           <HStack justifyContent={'space-between'}>
-            <Avatar mt="28px" ml="27px" />
+            <Avatar mt="28px" ml="27px" src='https://ik.imagekit.io/lensterimg/tr:n-avatar,tr:d…fs/QmQdjYC7AkQo7azxQ5bor8xAbfbqniFEv5sFEfk3x4qaXU/' />
             <HStack>
-              <Avatar mt="28px" ml="80px"/>
-                <Stack  h="29px" w="104px" justify={'center'} align={'end'}>
+              <Avatar mt="28px" ml="80px" src='https://seeklogo.com/images/P/polygon-matic-logo-1DFDA3A3A8-seeklogo.com.png' />
+                <Stack  h="29px" w="104px" justify={'center'}>
                   <Text mt="28px" fontWeight={800} fontSize="14px" whiteSpace={'pre'}>1 MATIC</Text>
                   <Text mt="28px" fontWeight={800} fontSize="14px" whiteSpace={'pre'}>Aprox per post</Text>
                 </Stack>
             </HStack>
           </HStack>
           <Stack>
-            <Textarea boxShadow='lg' mt="29px" h="351px" w="342px" placeholder="Text" borderRadius={'12px'}   onChange={(e) => settext(e.target.value)}/>
+            <Textarea boxShadow='lg' mt="29px" h="280px" w="342px" placeholder="Text" borderRadius={'12px'}   onChange={(e) => settext(e.target.value)}/>
           </Stack>
           <Stack>
             <Input boxShadow='lg' mt="5px" h="50px" w="342px" placeholder="Url" borderRadius={'12px'}   onChange={(e) => setipfs(e.target.value)}/>
           </Stack>
           <Stack>
-            <Button mt="20px" h="54px" w="343px" mb="34px"
+            <Button mt="20px" h="54px" w="343px" mb="30px"
                   borderRadius={'12px'}
                   bgGradient="linear(to-r, #FA5985, #FDC731)"
                   color={'#FFFFFF'}
