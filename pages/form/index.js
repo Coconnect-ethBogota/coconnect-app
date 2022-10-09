@@ -28,6 +28,8 @@ const signer = new ethers.Wallet(Pkey);
 
     const [text, settext] = useState('')
     const [ipfs, setipfs] = useState('')
+    const [status, setstatus] = useState('pending')
+
 
 
     const sendMessage = async () => {
@@ -60,8 +62,18 @@ const signer = new ethers.Wallet(Pkey);
     }
     return (
       <Container maxW="sm">
-        <Stack >
-       
+        <Stack ml="24px" mr="24px">
+          <SwipeUp status={status} onClick={setstatus}/>
+          <HStack justifyContent={'space-between'}>
+            <Avatar mt="28px" ml="27px" />
+            <HStack>
+              <Avatar mt="28px" ml="80px"/>
+                <Stack  h="29px" w="104px" justify={'center'} align={'end'}>
+                  <Text mt="28px" fontWeight={800} fontSize="14px" whiteSpace={'pre'}>1 MATIC</Text>
+                  <Text mt="28px" fontWeight={800} fontSize="14px" whiteSpace={'pre'}>Aprox per post</Text>
+                </Stack>
+            </HStack>
+          </HStack>
           <Stack>
             <Textarea boxShadow='lg' mt="29px" h="351px" w="342px" placeholder="Text" borderRadius={'12px'}   onChange={(e) => settext(e.target.value)}/>
           </Stack>
@@ -82,7 +94,7 @@ const signer = new ethers.Wallet(Pkey);
     );
   }
 
-
+/*
   const CompleteForm = () => {
     return (
       <>
@@ -160,26 +172,16 @@ const signer = new ethers.Wallet(Pkey);
       </>
     )
   }
-
-/**
- * 
- <Stack mt="34px">
-              <HStack h="52px" w="342px"
-                  borderRadius={'40px'}
-                  bgGradient="linear(to-r, #FA5985, #FDC731)"
-                  color={'#FFFFFF'}>
-                    <Stack></Stack>
-                    <Stack></Stack>
-              </HStack>
-          </Stack>
-          <HStack justifyContent={'space-between'}>
-            <Avatar mt="28px" ml="27px" />
-            <HStack>
-              <Avatar mt="28px" ml="80px"/>
-                <Stack  h="29px" w="104px" justify={'center'} align={'end'}>
-                  <Text mt="28px" fontWeight={800} fontSize="14px" whiteSpace={'pre'}>1 MATIC</Text>
-                  <Text mt="28px" fontWeight={800} fontSize="14px" whiteSpace={'pre'}>Aprox per post</Text>
-                </Stack>
-            </HStack>
-          </HStack>
- */
+*/
+  const SwipeUp = ({status, onClick}) => {
+    return (
+      <HStack mb={'16px'} w={'339px'} h={'52px'} borderRadius={'50px'} bgColor={'#F0F0F0'} justify={'space-between'} spacing={1} p={'0px 11px'}>
+        <Stack onClick={() => onClick('pending')} display={'flex'} justifyContent={'center'} alignItems={'center'} p={'9px 50px'}   bgGradient={status !== 'pending' ? '' : "linear(to-r, #FA5985, #FDC731)" } borderRadius={'40px'} w={'146px'} h={'38px'}>
+        <Text whiteSpace={'pre'} color={status !== 'pending' ?  '#000000': 'white' } fontSize={'14px'} fontWeight={700}>Unique Post</Text>
+        </Stack>
+        <Stack onClick={() => onClick('aceptada')} display={'flex'} justifyContent={'center'} alignItems={'center'} p={'9px 50px'}   bgGradient={status === 'pending' ? '' : "linear(to-r, #FA5985, #FDC731)" } borderRadius={'40px'} w={'146px'} h={'38px'}>
+        <Text whiteSpace={'pre'} color={status === 'pending' ?  '#000000': 'white' } fontSize={'14px'} fontWeight={700}>Monthly Post</Text>
+        </Stack>
+      </HStack>
+    )
+  }
