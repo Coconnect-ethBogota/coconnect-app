@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import { Box, ChakraProvider, Container } from '@chakra-ui/react'
 import { extendTheme } from '@chakra-ui/react'
 import '@rainbow-me/rainbowkit/styles.css';
-import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { lightTheme, RainbowKitProvider, Theme } from '@rainbow-me/rainbowkit';
 import {
   chain,
   configureChains,
@@ -18,8 +18,9 @@ import {
   metaMaskWallet
 } from '@rainbow-me/rainbowkit/wallets';
 import { rainbowWeb3AuthConnector } from '../utils/rainbowWeb3authConnector';
-import Navbar from '../components/Navbar'
 import { BottomNavbar } from '../components/BottomNavbar';
+
+
 
 const { chains, provider } = configureChains(
   [chain.polygon],
@@ -59,10 +60,18 @@ const colors = {
 export const theme = extendTheme({ colors })
 
 
+
 function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig client={wagmiClient}>
-    <RainbowKitProvider chains={chains}>
+    <RainbowKitProvider chains={chains} 
+       theme={lightTheme({
+        accentColor: 'linear-gradient(95.6deg, #FA5985 0.95%, #FDC731 96.58%)',
+        accentColorForeground: 'white',
+        borderRadius: 'medium',
+        fontStack: 'system',
+      })}
+    >
       <ChakraProvider theme={theme}>
         <Container maxW="sm">  
         <Component {...pageProps} />

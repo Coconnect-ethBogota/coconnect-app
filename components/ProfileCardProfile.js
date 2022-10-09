@@ -1,3 +1,4 @@
+import { LinkIcon } from '@chakra-ui/icons'
 import {
   Avatar,
   Box,
@@ -6,6 +7,7 @@ import {
   Flex,
   Heading,
   HStack,
+  IconButton,
   Image,
   Link,
   Stack,
@@ -20,7 +22,6 @@ export const ProfileCardProfile = ({ profile }) => {
     <Center py={6}>
       <Box
         w={'352px'}
-     
         bg={'white'}
         boxShadow={'2xl'}
         borderRadius={'24px'}
@@ -51,15 +52,15 @@ export const ProfileCardProfile = ({ profile }) => {
         <Flex justify={'space-between'} m={'0px 30px'} mt={-7}>
           <Stack align={'center'}>
             <Text fontWeight={700} fontSize={'18px'}>
-            {profile.stats.totalFollowing}
+              {profile.stats.totalFollowing}
             </Text>
             <Text fontWeight={500} fontSize={'12px'}>
-            Following
+              Following
             </Text>
           </Stack>
           <Stack align={'center'}>
             <Text fontWeight={700} fontSize={'18px'}>
-            {profile.stats.totalFollowers}
+              {profile.stats.totalFollowers}
             </Text>
             <Text fontWeight={500} fontSize={'12px'}>
               Followers
@@ -77,9 +78,12 @@ export const ProfileCardProfile = ({ profile }) => {
               'https://lens.xyz/static/media/lenster.8b83c79a3429715f184ddf346467bc75.svg'
             }
           />
-          <Avatar
+          <IconButton
+            isRound
             size={'sm'}
-            src={'https://assets.lenster.xyz/images/badges/ens.png'}
+            colorScheme="gray"
+            aria-label="Search database"
+            icon={<LinkIcon />}
           />
         </HStack>
         <Box p={6}>
@@ -142,7 +146,7 @@ export const ProfileCardProfile = ({ profile }) => {
                 <Text fontSize={'8px'}>Success Rate</Text>
               </Stack>
 
-              <Stack align={'center'} >
+              <Stack align={'center'}>
                 <Text fontWeight={400} fontSize={'12px'}>
                   Reputacion
                 </Text>

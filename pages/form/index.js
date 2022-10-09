@@ -1,21 +1,12 @@
 import {
-    Flex,
-    Box,
-    FormControl,
-    FormLabel,
     Input,
     HStack,
     Stack,
-    Link,
     Button,
-    Heading,
     Text,
-    useColorModeValue,
-    Container,
     Avatar,
     Textarea,
   } from '@chakra-ui/react';
-import Head from 'next/head';
 import { useState } from 'react';
 import * as PushAPI from "@pushprotocol/restapi";
 import * as ethers from "ethers";
@@ -58,17 +49,16 @@ const signer = new ethers.Wallet(Pkey);
       } catch (err) {
         console.error('Error: ', err);
       }
-      console.log('Message: ', text, ipfs);
     }
     return (
       <>
-        <Stack ml="24px" mr="24px" pt="15px">
+        <Stack pt="15px">
           <SwipeUp status={status} onClick={setstatus}/>
           <HStack justifyContent={'space-between'}>
             <Avatar mt="28px" ml="27px" src='https://ik.imagekit.io/lensterimg/tr:n-avatar,tr:d…fs/QmQdjYC7AkQo7azxQ5bor8xAbfbqniFEv5sFEfk3x4qaXU/' />
-            <HStack>
+            <HStack m={5}>
               <Avatar mt="28px" ml="80px" src='https://seeklogo.com/images/P/polygon-matic-logo-1DFDA3A3A8-seeklogo.com.png' />
-                <Stack  h="29px" w="104px" justify={'center'}>
+                <Stack  h="29px" justify={'center'}>
                   <Text mt="28px" fontWeight={800} fontSize="14px" whiteSpace={'pre'}>1 MATIC</Text>
                   <Text mt="28px" fontWeight={800} fontSize="14px" whiteSpace={'pre'}>Aprox per post</Text>
                 </Stack>
