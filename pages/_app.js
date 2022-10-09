@@ -18,7 +18,7 @@ import {
   metaMaskWallet
 } from '@rainbow-me/rainbowkit/wallets';
 import { rainbowWeb3AuthConnector } from '../utils/rainbowWeb3authConnector';
-
+import Navbar from '../components/Navbar'
 
 const { chains, provider } = configureChains(
   [chain.polygon],

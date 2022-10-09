@@ -14,8 +14,8 @@ import {
 } from '@chakra-ui/react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { ProfileCard } from '../components/ProfileCard'
-import { client, recommendProfiles, searchProfiles } from '../api'
+import { ProfileCard } from '../../components/ProfileCard'
+import { client, recommendProfiles, searchProfiles } from '../../api'
 export default function Inicio() {
 
   const [profiles, setprofiles] = useState([])
