@@ -1,4 +1,5 @@
-import { Avatar, Box, Button, Center, Flex, Heading, HStack, Image, Link, Stack, Text } from '@chakra-ui/react'
+import { LinkIcon } from '@chakra-ui/icons'
+import { Avatar, Box, Button, Center, Flex, Heading, HStack, IconButton, Image, Link, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
 
 
@@ -37,7 +38,13 @@ export const ProfileCard = ({profile}) => {
              <HStack justifyContent={'center'} mt={'16px'}>
             <Avatar size={'sm'} src={'https://assets.lenster.xyz/images/badges/ens.png'} />    
             <Avatar  size={'sm'} src={'https://lens.xyz/static/media/lenster.8b83c79a3429715f184ddf346467bc75.svg'} />
-            <Avatar  size={'sm'} src={'https://assets.lenster.xyz/images/badges/ens.png'} /> 
+            <IconButton
+            isRound
+            size={'sm'}
+            colorScheme="gray"
+            aria-label="Search database"
+            icon={<LinkIcon />}
+          />
             </HStack>   
             <Box p={6}>
               <Stack align={'center'}>
