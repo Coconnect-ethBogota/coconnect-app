@@ -1,31 +1,24 @@
 import {
-  Avatar,
-  Button,
   Container,
-  Heading,
   HStack,
   Input,
-  Stack,
   Tab,
   TabList,
   Tabs,
-  Text,
-  WrapItem,
 } from '@chakra-ui/react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { ProfileCard } from '../components/ProfileCard'
-import { client, recommendProfiles, searchProfiles, getProfileByOwner } from '../api'
-import { ConnectButton, useConnectModal } from '@rainbow-me/rainbowkit'
-import { useAccount } from 'wagmi'
-
+import { client, recommendProfiles, searchProfiles } from '../api'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 export default function Inicio() {
 
   const [profiles, setprofiles] = useState([])
-
+  const [loading, setloading] = useState(true)
   useEffect(() => {
     fetchProfiles()
+    setloading(false)
   }, [])
 
 
@@ -57,8 +50,6 @@ export default function Inicio() {
       console.log(error)
     }
   }
-
-
 
   return (
     <Container maxW="sm">
