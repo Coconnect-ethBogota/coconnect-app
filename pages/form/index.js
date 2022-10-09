@@ -29,8 +29,31 @@ import {
                     <Stack></Stack>
               </HStack>
           </Stack>
+          <HStack justifyContent={'space-between'}>
+            <Avatar mt="28px" ml="27px" />
+            <HStack>
+              <Avatar mt="28px" ml="80px"/>
+                <Stack  h="29px" w="104px" justify={'center'} align={'end'}>
+                  <Text mt="28px" fontWeight={800} fontSize="14px" whiteSpace={'pre'}>1 MATIC</Text>
+                  <Text mt="28px" fontWeight={800} fontSize="14px" whiteSpace={'pre'}>Aprox per post</Text>
+                </Stack>
+            </HStack>
+          </HStack>
+          <Stack>
+            <Textarea boxShadow='lg' mt="29px" h="351px" w="342px" placeholder="Text" borderRadius={'12px'}/>
+          </Stack>
+          <Stack>
+            <Input boxShadow='lg' mt="5px" h="50px" w="342px" placeholder="Url" borderRadius={'12px'}/>
+          </Stack>
+          <Stack>
+            <Button mt="20px" h="54px" w="343px" mb="34px"
+                  borderRadius={'12px'}
+                  bgGradient="linear(to-r, #FA5985, #FDC731)"
+                  color={'#FFFFFF'}
+                  > Send Proposal
+            </Button> 
+          </Stack>
         </Stack>
-       <CompleteForm />
       </Container>
     );
   }
