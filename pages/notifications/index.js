@@ -43,7 +43,7 @@ const data = [
 export default function Notifications () {
   const [status, setstatus] = useState('pending')
   return (
-    <Container maxW="sm">
+    <>
       <HStack justify={'space-between'} pt={'25px'}>
        <Box w={'48px'} h={'48px'} /> 
        <HStack >
@@ -59,7 +59,7 @@ export default function Notifications () {
         return <Card props={person} key={person.key} />
       })}
       </Stack>
-    </Container>
+    </>
   )
 }
 

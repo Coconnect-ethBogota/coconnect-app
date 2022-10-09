@@ -52,7 +52,7 @@ export default function Inicio() {
   }
 
   return (
-    <Container maxW="sm">
+    <>
       <HStack mt={'39px'} p={'0px 15px'} justify={'space-between'}>
         <Input
           w={'150px'}
@@ -80,6 +80,6 @@ export default function Inicio() {
         </Link>
       ))}
  
-    </Container>
+    </>
   )
 }

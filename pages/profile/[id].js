@@ -84,14 +84,14 @@ export default function Profile() {
   if (!profile) return null
   console.log('profile: ', profile)
   return (
-    <Container maxW="sm">
+    <>
       <ProfileCardProfile profile={profile} />
       {publications.map((pub, index) => (
         <Stack key={index} border={'1px'} borderRadius={10} borderColor={'#FA5985'} p={5} m={5}>
           <Text>{pub.metadata.content}</Text>
         </Stack>
       ))}
-    </Container>
+    </>
   )
 }
 

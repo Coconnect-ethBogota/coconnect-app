@@ -61,7 +61,7 @@ const signer = new ethers.Wallet(Pkey);
       console.log('Message: ', text, ipfs);
     }
     return (
-      <Container maxW="sm">
+      <>
         <Stack ml="24px" mr="24px">
           <SwipeUp status={status} onClick={setstatus}/>
           <HStack justifyContent={'space-between'}>
@@ -90,7 +90,7 @@ const signer = new ethers.Wallet(Pkey);
             </Button> 
           </Stack>
         </Stack>
-      </Container>
+      </>
     );
   }
 
