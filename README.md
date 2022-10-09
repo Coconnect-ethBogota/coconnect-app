@@ -1,5 +1,5 @@
 # Coconnet
-![](img/project-header.png)
+![](img/header.png)
 
 <div align="center">
 <img src="https://img.shields.io/github/stars/Coconnect-ethBogota/coconnect-app?style=social" />
@@ -9,7 +9,7 @@ Coconnet is a platform that connects creators with users/business who wants to p
 
 Built using Tweepy, Python and the Twitter API.
 
-## How does it work? ❔
+## How does it work?
 Anti Fraud bot will reply to any tweet containing the word "Metamask" with a warn message about phishing attacks and mention the official Metamask support account.
 
 To see working examples see the [Tweets & Replies](https://twitter.com/antifraudbot/with_replies) page.
