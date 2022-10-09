@@ -37,12 +37,12 @@ const signer = new ethers.Wallet(Pkey);
           type: 3, // target
           identityType: 2, // direct payload
           notification: {
-            title: `🥥 COCOPUSH new notification:`,
-            body: `🥥 🥥 🥥 🥥 🥥 anda a entrenar`
+            title: `🥥 COCOPUSH`,
+            body: `you have a new proposal!`
           },
           payload: {
-            title: `[sdk-test] payload title`,
-            body: `sample msg body`,
+            title: `🥥 COCOPUSH`,
+            body:  `you have a new proposal!`,
             cta: '',
             img: ''
           },
