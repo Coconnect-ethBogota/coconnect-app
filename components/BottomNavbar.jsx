@@ -14,7 +14,7 @@ export const BottomNavbar = () => {
     justify={'space-between'}
     position={'fixed'}
     bottom={'26px'}
-    zIndex={9999999}
+    zIndex={99999}
     borderRadius={'20px'}
     bgColor={'white'}
     p={'25px 43px 25px 43px'}

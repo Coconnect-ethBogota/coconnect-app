@@ -64,8 +64,8 @@ function MyApp({ Component, pageProps }) {
     <WagmiConfig client={wagmiClient}>
     <RainbowKitProvider chains={chains}>
       <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
         <Container maxW="sm">  
+        <Component {...pageProps} />
         <BottomNavbar />
           </Container>
       </ChakraProvider>
