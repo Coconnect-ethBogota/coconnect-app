@@ -1,5 +1,5 @@
 # Coconnet
-![](img/header2.png)
+![](img/header3.png)
 
 <div align="center">
 <img src="https://img.shields.io/github/stars/Coconnect-ethBogota/coconnect-app?style=social" />
