@@ -7,12 +7,22 @@
 
 Coconnet is a platform that connects creators with users/business who wants to promote their product or service.
 
-Built using Tweepy, Python and the Twitter API.
-
 ## How does it work?
-Anti Fraud bot will reply to any tweet containing the word "Metamask" with a warn message about phishing attacks and mention the official Metamask support account.
+First, run the development server:
 
-To see working examples see the [Tweets & Replies](https://twitter.com/antifraudbot/with_replies) page.
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 ## Authors 👦
 
